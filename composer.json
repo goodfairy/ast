@@ -16,10 +16,13 @@
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-recommended": "^8.8.0",
         "drupal/devel": "^2.0.0",
+        "drupal/drupalmoduleupgrader": "^1.5",
         "drupal/features": "^3.8.0",
         "drupal/qa_accounts": "^1.0.0-alpha1",
         "drupal/seckit": "^1.0.0-alpha2",
-        "drupal/shield": "^1.2.0"
+        "drupal/shield": "^1.2.0",
+        "fotorama_gallery/fotorama": "4.6.4",
+        "wikimedia/less.php": "^2.0"
     },
     "require-dev": {
         "acquia/blt-require-dev": "11.x-dev"
@@ -108,6 +111,18 @@
         "asset-packagist": {
             "type": "composer",
             "url": "https://asset-packagist.org"
+        },
+        "fotorama_gallery": {
+            "type": "package",
+            "package": {
+                "name": "fotorama_gallery/fotorama",
+                "version": "v4.6.4",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/artpolikarpov/fotorama/releases/download/4.6.4/fotorama-4.6.4.zip",
+                    "type": "zip"
+                }
+            }
         }
     },
     "minimum-stability": "dev",

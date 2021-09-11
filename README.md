@@ -2,7 +2,7 @@
 
 A brief description of My Project.
 
-## Using This Template
+## Using This Template 1
 
 Remove this section after initial setup!
 

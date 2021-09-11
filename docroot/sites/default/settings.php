@@ -88,7 +88,16 @@
  * ];
  * @endcode
  */
-$databases = [];
+$databases['default']['default'] = [
+   'database' => 'astland',
+   'username' => 'astuser',
+   'password' => 'astpasswd',
+   'host' => 'localhost',
+   'port' => '3306',
+   'driver' => 'mysql',
+   'prefix' => '',
+   'collation' => 'utf8mb4_general_ci',
+];
 
 /**
  * Customizing database settings.
