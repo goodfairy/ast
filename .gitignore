@@ -1,11 +1,11 @@
 # Ignore configuration files that may contain sensitive information.
-local.settings.php
-local.drush.yml
-local.site.yml
-local.services.yml
+#local.settings.php
+#local.drush.yml
+#local.site.yml
+#local.services.yml
 tests/behat/local.yml
 box/local.config.yml
-*.local
+#*.local
 local.blt.yml
 
 # Ignore drupal core.
