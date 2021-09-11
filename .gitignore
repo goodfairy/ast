@@ -9,24 +9,24 @@ box/local.config.yml
 local.blt.yml
 
 # Ignore drupal core.
-docroot/core
+#docroot/core
 
 # Ignore paths that contain user-generated content.
-docroot/sites/*/files
-/files-private
-docroot/sites/*/private
+#docroot/sites/*/files
+#/files-private
+#docroot/sites/*/private
 
 # Ignore contrib modules. These should be created during build process.
-docroot/modules/contrib
-docroot/themes/contrib
-docroot/profiles/contrib
-docroot/libraries
-drush/Commands
+#docroot/modules/contrib
+#docroot/themes/contrib
+#docroot/profiles/contrib
+#docroot/libraries
+#drush/Commands
 
 # Ignore custom theme build artifacts
-docroot/themes/custom/*/node_modules
-docroot/themes/custom/*/css
-docroot/themes/custom/*/styleguide
+#docroot/themes/custom/*/node_modules
+#docroot/themes/custom/*/css
+#docroot/themes/custom/*/styleguide
 
 # Ignore build artifacts
 deployment_identifier
