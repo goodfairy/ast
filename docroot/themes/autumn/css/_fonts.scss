@@ -1,0 +1,171 @@
+h1,h2,h3,h4,h5,h6,p,blockquote{
+  margin: 0;
+}
+
+/*
+  font-family: 'Open Sans', sans-serif; 400,700
+  font-family: 'Open Sans Condensed', sans-serif; 300,700
+*/
+
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1{
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed', sans-serif;
+  letter-spacing: 2px;
+  font-size: 80px;
+  line-height: 90px;
+  font-weight: 700;
+  margin-bottom: 10px;
+
+  @media only screen and (min-width: 2000px) {
+    font-size: 4vw;//calc = init value / 20
+    letter-spacing: 0.1vw;
+    line-height: 4.5vw;
+    margin-bottom: 0.5vw;
+  }
+}
+
+h2{
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-transform: uppercase;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+
+  @media only screen and (min-width: 2000px) {
+    font-size: 1.6vw;
+    line-height: 2vw;
+  }
+}
+
+h3{
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+
+  @media only screen and (min-width: 2000px) {
+    font-size: 0.8vw;
+  }
+}
+
+h4{
+  font-size: 22px;
+  line-height: 30px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 300;
+
+  @media only screen and (min-width: 2000px) {
+    font-size: 1.1vw;
+    line-height: 1.5vw;
+  }
+}
+
+h5{
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 28px;
+  font-family: 'Open Sans Condensed', sans-serif;
+
+  @media only screen and (min-width: 2000px) {
+    font-size: 1vw;
+    line-height: 1.4vw;
+  }
+}
+
+h6{
+  font-size: 16px;
+  line-height: 24px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+
+  &.subtitle{
+    opacity: 0.8;
+  }
+
+  @media only screen and (min-width: 2000px) {
+    font-size: 0.8vw;
+    line-height: 1.2vw;
+  }
+}
+
+blockquote{
+  font-size: 30px;
+  line-height: 42px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  font-style: italic;
+  font-family: 'Open Sans Condensed', sans-serif;
+
+  @media only screen and (min-width: 2000px) {
+    font-size: 1.5vw;
+    line-height: 2.1vw;
+    margin-bottom: 0.75vw;
+  }
+}
+
+p,
+li,
+label,
+.comment-text{
+  font-size: 16px;
+  line-height: $lineHeightP;
+  font-weight: 400;
+
+  @media only screen and (min-width: 2000px) {
+    font-size: 0.8vw;
+    line-height: $lineHeightPBigScreen;
+  }
+}
+
+p a:not(.cta){
+  opacity: 1;
+  transition: 0.3s ease-out;
+  will-change: opacity, border;
+  text-decoration: none;
+  border-bottom: 1px solid white;
+
+  &:hover{
+    opacity: 0.5;
+    border-bottom: 1px solid transparent;
+  }
+}
+
+.big-p p,
+p.big-p{
+  font-size: 22px;
+  line-height: 30px;
+
+  @media only screen and (min-width: 2000px) {
+    font-size: 1.1vw;
+    line-height: 1.5vw;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  h3{
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  h1{
+    letter-spacing: 1px;
+    font-size: 60px;
+    line-height: 70px;
+  }
+
+  h2{
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .big-p p,
+  p.big-p{
+    font-size: 18px;
+    line-height: 26px;
+  }
+}

@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Contains ckeditor_images_gallery.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ckeditor_images_gallery_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.ckeditor_images_gallery':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module provide a dialog to add images gallery into CKEditor field.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function ckeditor_images_gallery_page_attachments_alter(array &$page) {
+  $page['#attached']['library'][] = 'ckeditor_images_gallery/images_gallery_style';
+}

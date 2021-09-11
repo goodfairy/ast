@@ -1,0 +1,20 @@
+$maxWidth: 1240px;
+$grid-spacing:40px;
+$mobile-spacing: 15px;
+$small-mobile-spacing: 8px;
+
+$lineHeightP: 26px;
+$lineHeightPBigScreen: 1.3vw;
+
+$panelDistance: 70px;
+
+$panelDistanceMobile: 50px;
+
+@import '_helper.scss';
+@import '_fonts.scss';
+@import '_grid.scss';
+@import 'panels/index.scss';
+@import '_header.scss';
+@import '_footer.scss';
+@import '_cookie-banner.scss';
+@import '_drupal-extra-code.scss';

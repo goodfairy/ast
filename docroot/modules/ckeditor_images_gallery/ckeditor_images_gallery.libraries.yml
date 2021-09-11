@@ -1,0 +1,16 @@
+ckeditor.images_gallery.dialog:
+  version: 1.x
+  css:
+    theme:
+      css/ckeditor-images-gallery.dialog.css: {}
+  js:
+    js/ckeditor-images-gallery.dialog.js: {}
+  dependencies:
+    - core/jquery
+    - core/sortable
+
+images_gallery_style:
+  version: 1.x
+  css:
+    theme:
+      css/ckeditor-images-gallery.css: {}

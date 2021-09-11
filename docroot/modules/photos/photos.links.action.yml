@@ -1,0 +1,5 @@
+photos.import.directory:
+  route_name: photos.import.directory
+  title: 'Import photos'
+  appears_on:
+    - photos.admin

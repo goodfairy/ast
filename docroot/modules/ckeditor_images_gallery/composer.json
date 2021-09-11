@@ -1,0 +1,7 @@
+{
+  "name": "drupal/ckeditor_images_gallery",
+  "description": "Provides a dialog to add images gallery to CKEditor.",
+  "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/ckeditor_images_gallery",
+  "license": "GPL-2.0+"
+}

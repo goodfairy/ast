@@ -1,0 +1,22 @@
+<section {% if content.field_scroll_id|render %}id="{{ content.field_scroll_id|render|striptags|trim|replace({'#': ''}) }}"{% endif %} class="panel-faq default-panel-padding" data-paragraph-id="{{ paragraph.id() }}">
+  <div class="max-width">
+    <div class="row row-headline">
+      <div class="col-12">
+        {{ content.field_area_01 }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1 desktop">&nbsp;</div>
+
+      <div class="col-5 left-faq-col">
+        {{ content.field_paragraph_unlimited_01 }}
+      </div>
+
+      <div class="col-5 right-faq-col">
+        {{ content.field_paragraph_unlimited_02 }}
+      </div>
+
+      <div class="col-1 desktop">&nbsp;</div>
+    </div>
+  </div>
+</section>

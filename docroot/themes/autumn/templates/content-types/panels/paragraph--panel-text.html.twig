@@ -1,0 +1,21 @@
+{% if content.field_extra_padding_01[0]['#markup'] %}
+  {% set extraPaddingClass = 'extra-padding' %}
+{% else %}
+  {% set extraPaddingClass = '' %}
+{% endif %}
+
+<section {% if content.field_scroll_id|render %}id="{{ content.field_scroll_id|render|striptags|trim|replace({'#': ''}) }}"{% endif %} class="panel-text default-panel-padding {{ extraPaddingClass }}" data-paragraph-id="{{ paragraph.id() }}">
+  <div class="text-layer">
+    <div class="max-width">
+      <div class="row">
+        <div class="col-2 desktop">&nbsp;</div>
+        <div class="col-8">
+          <div class="big-p">
+            {{ content.field_area_01 }}
+          </div>
+        </div>
+        <div class="col-2 desktop">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+</section>

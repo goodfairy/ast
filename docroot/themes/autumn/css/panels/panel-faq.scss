@@ -1,0 +1,46 @@
+.panel-faq{
+  .faq-element{
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: 0.3s ease-out;
+    will-change: border;
+
+    &:first-of-type{
+      margin-top: 0;
+    }
+
+    .faq-text{
+      margin-top: 10px;
+    }
+
+    .faq-title{
+      cursor: pointer;
+      text-align: center;
+      transition: 0.2s ease-out;
+      will-change: color;
+    }
+  }
+
+  @media only screen and (min-width: 2000px) {
+    .faq-element{
+      padding: 0.5vw;
+      border-radius: 0.25vw;
+      margin-top: 1vw;
+
+      &:first-of-type{
+        margin-top: 0;
+      }
+
+      .faq-text{
+        margin-top: 0.5vw;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    .right-faq-col{
+      margin-top: 20px;
+    }
+  }
+}

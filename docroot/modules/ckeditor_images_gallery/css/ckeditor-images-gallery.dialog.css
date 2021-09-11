@@ -1,0 +1,32 @@
+.cke_dialog_body  .cke-ig-edit-list {
+  height: 400px;
+  overflow-y: auto;
+}
+.cke_dialog_body  .cke-ig-edit-list img {
+  width: 100%;
+  max-height: 100%;
+}
+.cke_dialog_body  .cke-ig-edit-list .item {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  border: 1px dashed #9e9191;
+  margin: 2px 0;
+}
+.cke_dialog_body  .cke-ig-edit-list .item .img-wrap {
+  grid-column: 1;
+  padding: 5px;
+}
+.cke_dialog_body  .cke-ig-edit-list .item .attr-wrap {
+  grid-column: 2;
+  padding: 5px;
+}
+.cke_dialog_body  .cke-ig-edit-list .item input[type="text"] {
+  width: 100%;
+}
+.cke_dialog_body  .cke-ig-edit-list .item.selected {
+  border: 2px dashed red;
+  outline: none;
+}
+.cke_dialog_body  .cke-ig-edit-list .item.selected.typing {
+  border: 2px dashed #9e9191;
+}

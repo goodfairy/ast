@@ -1,0 +1,13 @@
+.cke-ig {
+  display: inline-flex;
+  line-height: 0;
+  flex-wrap: wrap;
+  border: 1px solid #191919;
+  margin-bottom: 5px;
+}
+.cke-ig img {
+  height: 120px;
+  width: auto;
+  flex: 1 0 auto;
+  margin: 5px;
+}

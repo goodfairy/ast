@@ -1,0 +1,61 @@
+{% set img = file_url(paragraph.field_image_01.0.entity.uri.value) %}
+
+{% if content.field_no_space_top_01[0]['#markup'] %}
+  {% set spaceTopClass = 'no-space-top' %}
+{% else %}
+  {% set spaceTopClass = 'no-space-top-off' %}
+{% endif %}
+
+{% if content.field_no_space_bottom_01[0]['#markup'] %}
+  {% set spaceBottomClass = 'no-space-bottom' %}
+{% else %}
+  {% set spaceBottomClass = 'no-space-bottom-off' %}
+{% endif %}
+
+{% if content.field_background_bright_01[0]['#markup'] %}
+  {% set bgBrightClass = 'bg-bright' %}
+{% else %}
+  {% set bgBrightClass = 'bg-dark' %}
+{% endif %}
+
+{% if content.field_text_position_01[0]['#markup'] == 0 %}
+  {% set textPosClass = 'text-top-align' %}
+{% elseif content.field_text_position_01[0]['#markup'] == 1 %}
+  {% set textPosClass = 'text-center-align' %}
+{% else %}
+  {% set textPosClass = 'text-bottom-align' %}
+{% endif %}
+
+{% if content.field_text_readability_01[0]['#markup'] %}
+  {% set textReadClass = 'text-readability-on' %}
+{% else %}
+  {% set textReadClass = 'text-readability-off' %}
+{% endif %}
+
+<section {% if content.field_scroll_id|render %}id="{{ content.field_scroll_id|render|striptags|trim|replace({'#': ''}) }}"{% endif %} class="panel-bg-with-text big-p {{ spaceTopClass }} {{ spaceBottomClass }} {{ textPosClass }} {{ textReadClass }} {{ bgBrightClass }} image-bg-1" data-paragraph-id="{{ paragraph.id() }}">
+  <div class="ratio-wrap">
+    <div class="abs-wrap">
+      <div class="rel">
+        <div class="bg-image abs-wrap" style="background-image:url('{{ img }}');">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-layer">
+    <div class="animation-helper">
+      <div class="max-width">
+        <div class="row">
+          <div class="col-3 desktop">&nbsp;</div>
+          <div class="col-6">
+            <div class="inner-text-layer">
+             {{ content.field_area_01 }}
+            </div>
+          </div>
+          <div class="col-3 desktop">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

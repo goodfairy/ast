@@ -1,0 +1,18 @@
+.panel-text{
+  text-align: center;
+
+  &.extra-padding{
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    @media only screen and (max-width: 767px) {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    @media only screen and (min-width: 2000px) {
+      padding-top: 5vw;
+      padding-bottom: 5vw;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.cke-ig img {
+  width: auto;
+  height: 70px;
+  margin: 2px;
+}
+.cke-ig {
+  border: 1px dashed #bc8787;
+  line-height: 0;
+  margin: 5px 0;
+}

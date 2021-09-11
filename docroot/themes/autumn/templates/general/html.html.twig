@@ -1,0 +1,328 @@
+{#
+/**
+ * @file
+ * Theme override for the basic structure of a single Drupal page.
+ *
+ * Variables:
+ * - logged_in: A flag indicating if user is logged in.
+ * - root_path: The root path of the current page (e.g., node, admin, user).
+ * - node_type: The content type for the current node, if the page is a node.
+ * - head_title: List of text elements that make up the head_title variable.
+ *   May contain one or more of the following:
+ *   - title: The title of the page.
+ *   - name: The name of the site.
+ *   - slogan: The slogan of the site.
+ * - page_top: Initial rendered markup. This should be printed before 'page'.
+ * - page: The rendered page markup.
+ * - page_bottom: Closing rendered markup. This variable should be printed after
+ *   'page'.
+ * - db_offline: A flag indicating if the database is offline.
+ * - placeholder_token: The token for generating head, css, js and js-bottom
+ *   placeholders.
+ *
+ * @see template_preprocess_html()
+ */
+#}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+  <head>
+    <head-placeholder token="{{ placeholder_token|raw }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token|raw }}">
+    <js-placeholder token="{{ placeholder_token|raw }}">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|Open+Sans:400,700&display=swap" rel="stylesheet">
+
+    {% set bg_main = '#191919' %}
+    {% if autumn_color_bg_main != '' %}
+      {% set bg_main = autumn_color_bg_main %}
+    {% endif %}
+
+    {% set bg_secondary = '#2d2d2d' %}
+    {% if autumn_color_bg_secondary != '' %}
+      {% set bg_secondary = autumn_color_bg_secondary %}
+    {% endif %}
+
+    {% set btn_main_hover = '#000000' %}
+    {% if autumn_color_btn_main_hover != '' %}
+      {% set btn_main_hover = autumn_color_btn_main_hover %}
+    {% endif %}
+
+    {% set btn_secondary_hover = '#000000' %}
+    {% if autumn_color_btn_secondary_hover != '' %}
+      {% set btn_secondary_hover = autumn_color_btn_secondary_hover %}
+    {% endif %}
+
+    {% set txt_read_dark = '#000000' %}
+    {% if autumn_color_text_read_dark != '' %}
+      {% set txt_read_dark = autumn_color_text_read_dark %}
+    {% endif %}
+
+    {% set txt_read_bright = '#ffffff' %}
+    {% if autumn_color_text_read_bright != '' %}
+      {% set txt_read_bright = autumn_color_text_read_bright %}
+    {% endif %}
+
+    {% set font_dark = '#000000' %}
+    {% if autumn_color_font_dark != '' %}
+      {% set font_dark = autumn_color_font_dark %}
+    {% endif %}
+
+    {% set font_main = '#ffffff' %}
+    {% if autumn_color_font_main != '' %}
+      {% set font_main = autumn_color_font_main %}
+    {% endif %}
+
+    {% set font_secondary = '#b59982' %}
+    {% if autumn_color_font_secondary != '' %}
+      {% set font_secondary = autumn_color_font_secondary %}
+    {% endif %}
+
+    {% set btn_color_main = '#b59982' %}
+    {% if autumn_color_btn_main != '' %}
+      {% set btn_color_main = autumn_color_btn_main %}
+    {% endif %}
+
+    {% set btn_color_secondary = '#ffffff' %}
+    {% if autumn_color_btn_secondary != '' %}
+      {% set btn_color_secondary = autumn_color_btn_secondary %}
+    {% endif %}
+
+    <style type="text/css">
+      /* general */
+      body{
+        background-color: {{bg_main}};
+        color: {{font_main}};
+      }
+
+      hr{
+        background-color: {{font_secondary}};
+      }
+
+      h6.subtitle,
+      .panel-comments .reply-wrap{
+        color: {{font_secondary}};
+      }
+
+      .color-bg-secondary{
+        background-color: {{bg_secondary}};
+      }
+
+
+
+
+      /* inputs */
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      textarea{
+        background-color: {{bg_secondary}};
+        color: {{font_main}};
+      }
+
+
+
+      /* main nav*/
+      .main-nav a,
+      #mobile-overlay a,
+      #mobile-overlay .social{
+        color: {{font_main}};
+      }
+      .main-nav a:hover,
+      .main-nav a.active,
+      #mobile-overlay a:hover,
+      #mobile-overlay a.active{
+        color: {{font_secondary}};
+      }
+
+
+
+      /* cta */
+      .cta,
+      input[type="submit"],
+      #sliding-popup .eu-cookie-compliance-buttons button{
+        color: {{btn_color_main}};
+        border: 2px solid {{btn_color_main}};
+      }
+
+      .cta:hover,
+      input[type="submit"]:hover,
+      #sliding-popup .eu-cookie-compliance-buttons button:hover{
+        color: {{btn_main_hover}};
+        background-color: {{btn_color_main}};
+      }
+
+      .cta.cta-white,
+      #sliding-popup .eu-cookie-compliance-buttons button.decline-button{
+        color: {{btn_color_secondary}};
+        border: 2px solid {{btn_color_secondary}};
+      }
+
+      .cta.cta-white:hover,
+      #sliding-popup .eu-cookie-compliance-buttons button.decline-button:hover{
+        color: {{btn_secondary_hover}};
+        background-color: {{btn_color_secondary}};
+      }
+
+
+
+      /* slick slider */
+      .slick-dots li button{
+        background-color: {{bg_secondary}};
+        border: 1px solid {{font_main}};
+      }
+      .slick-dots li.slick-active button{
+        background-color: {{font_secondary}};
+        border: 1px solid {{font_secondary}};
+      }
+
+
+
+      /* cookie banner */
+      #sliding-popup .eu-cookie-compliance-message button{
+        color: {{font_main}};
+      }
+
+
+
+      /* tags */
+      .tag{
+        background-color: {{font_secondary}};
+        color: {{font_dark}}};
+      }
+
+
+
+      /* comments */
+      .panel-comments .reply-wrap{
+        color: {{font_secondary}};
+      }
+
+
+
+      /* sidebar */
+      .sidebar li{
+        color: {{font_main}};
+      }
+      .sidebar li.active{
+        color: {{font_secondary}};
+      }
+
+
+
+      /* pagination */
+      .blog-post-tesaer-wrap nav a{
+        color: {{font_secondary}};
+        background-color: {{bg_secondary}};
+      }
+
+
+
+      /* hover-details-overlay-effect-1 */
+      .hover-details-overlay-effect-1 .details-container{
+        color: {{font_main}};
+      }
+      .hover-details-overlay-effect-1 .details-container hr{
+        background-color: {{font_main}};
+      }
+
+
+
+      /* panel-image-grid */
+      .panel-image-grid .filter-bar .mobile-dropdown{
+        background-color: {{bg_secondary}};
+      }
+      .panel-image-grid .filter-bar .filter-trigger{
+        color: {{font_main}};
+        background-color: {{bg_secondary}};
+      }
+      .panel-image-grid .filter-bar .filter-trigger.active,
+      .panel-image-grid .filter-bar .filter-trigger:hover,
+      .panel-image-grid .filter-bar .icon-filter{
+        color: {{btn_main_hover}};
+        background-color: {{btn_color_main}};
+      }
+
+
+
+      /* panel-usp */
+      .panel-usp .element-usp .icon-wrap i,
+      .panel-usp .element-usp .icon-wrap .text-wrap .subtitle,
+      .panel-usp .element-usp h2,
+      .panel-usp .element-usp h3,
+      .panel-usp .element-usp h4,
+      .panel-usp .element-usp h5,
+      .panel-usp .element-usp h6{
+        color: {{font_secondary}};
+      }
+
+
+
+      /* panel about*/
+      .panel-about .element-about h6{
+        color: {{font_secondary}};
+      }
+
+
+
+      /* panel-faq */
+      .panel-faq .faq-element{
+        background-color: {{bg_secondary}};
+        border: 1px solid {{bg_secondary}};
+      }
+      .panel-faq .faq-element .faq-title{
+        color: {{font_main}};
+      }
+      .panel-faq .faq-element .faq-title:hover{
+        color: {{font_secondary}};
+      }
+      .panel-faq .faq-element.active-faq{
+        border: 1px solid {{font_secondary}};
+      }
+      .panel-faq .faq-element.active-faq .faq-title{
+        color: {{font_secondary}};
+      }
+
+
+
+      /* panel-hero---panel-bg-with-text */
+      .panel-hero hr,
+      .panel-bg-with-text hr{
+        background-color: {{font_main}};
+      }
+
+      .panel-hero .text-layer .inner-text-layer:before,
+      .panel-bg-with-text .text-layer .inner-text-layer:before{
+        background-color: {{txt_read_dark}};
+      }
+      .panel-hero.bg-bright .text-layer .inner-text-layer:before,
+      .panel-bg-with-text.bg-bright .text-layer .inner-text-layer:before{
+        background-color: {{txt_read_bright}};
+      }
+
+      .panel-hero.bg-bright hr,
+      .panel-bg-with-text.bg-bright hr{
+        background-color: {{font_dark}};
+      }
+
+      .panel-hero.bg-bright .text-layer,
+      .panel-bg-with-text.bg-bright .text-layer{
+        color: {{font_dark}};
+      }
+    </style>
+  </head>
+  <body class="{{ page_information }} toolbar-icon-9" {{ attributes }}>
+    {#
+      Keyboard navigation/accessibility link to main content section in
+      page.html.twig.
+    #}
+    <a href="#main-content" class="visually-hidden focusable">
+      {{ 'Skip to main content'|t }}
+    </a>
+
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+    <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+  </body>
+</html>

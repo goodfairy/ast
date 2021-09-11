@@ -1,0 +1,32 @@
+<header class="main-nav {% if content.field_image_01|render %}with-brand-logo{% else %}with-brand-logo-0{% endif %}">
+  {% if content.field_image_01|render %}
+    <a href="{{ url('<front>') }}" class="brand-logo">
+      {{ content.field_image_01 }}
+    </a>
+  {% endif %}
+
+  <ul>
+    {{ content.field_link_unlimited_01 }}
+  </ul>
+
+  <div class="hamburger-menu">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</header>
+
+<div id="mobile-overlay" class="mobile">
+  <div class="main-links">
+    <ul>
+      {{ content.field_link_unlimited_01 }}
+    </ul>
+  </div>
+
+  <div class="social">
+    <h4>{{ content.field_text_01 }}</h4>
+    <ul>
+      {{ content.field_paragraph_unlimited_01 }}
+    </ul>
+  </div>
+</div>

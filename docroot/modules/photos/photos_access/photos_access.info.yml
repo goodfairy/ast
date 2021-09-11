@@ -1,0 +1,12 @@
+name: 'Photos access'
+description: 'Advanced photo access and privacy settings.'
+core_version_requirement: ^8.8 || ^9
+package: 'photos'
+type: module
+dependencies:
+  - drupal:photos
+
+# Information added by Drupal.org packaging script on 2021-04-08
+version: '8.x-4.4'
+project: 'photos'
+datestamp: 1617925978

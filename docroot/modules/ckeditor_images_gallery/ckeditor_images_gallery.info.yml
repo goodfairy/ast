@@ -1,0 +1,14 @@
+name: 'CKEditor Images Gallery'
+type: module
+description: 'Provide images gallery for CKEditor.'
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: 'Media'
+dependencies:
+  - imce:imce
+  - drupal:ckeditor
+
+# Information added by Drupal.org packaging script on 2021-07-01
+version: '8.x-1.6'
+project: 'ckeditor_images_gallery'
+datestamp: 1625102766

@@ -1,0 +1,15 @@
+global-styling:
+  version: 1.0
+  css:
+    base:
+      css/main.css: {}
+      js/vendor/slick.css: {}
+  js:
+    js/vendor/slick.min.js: {}
+    js/vendor/jquery.filterizr.min.js: {}
+    js/vendor/jquery.cookie.js: {}
+    https://www.youtube.com/iframe_api: { external: true }
+    js/main.js: {}
+  dependencies:
+    - core/jquery
+    - core/modernizr

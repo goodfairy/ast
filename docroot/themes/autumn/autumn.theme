@@ -1,0 +1,315 @@
+<?php
+
+use Drupal\Component\Utility\Html;
+
+function autumn_system_settings_form($form) {
+  // Collapse fieldsets
+  $form_elements = element_children($form);
+  foreach ($form_elements as $element) {
+    if ($form[$element]['#type'] == 'fieldset') { //Identify fieldsets and collapse them
+      $form[$element]['#collapsible'] = TRUE;
+      $form[$element]['#collapsed']   = TRUE;
+    }
+  }
+  return drupal_render($form);
+}
+
+function autumn_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id = NULL) {
+  // Work-around for a core bug affecting admin themes. See issue #943212.
+  if (isset($form_id)) {
+    return;
+  }
+
+  $form['autumn_general'] = array(
+    '#type'         => 'details',
+    '#title'        => t('General theme settings'),
+    '#open'         => TRUE,
+  );
+
+  $form['autumn_general']['autumn_parallax'] = array(
+    '#type'          =>'checkbox',
+    '#title'         =>t('Parallax effects'),
+    '#default_value' => theme_get_setting('autumn_parallax'),
+    '#description'   => t("If this checkbox is enabled the parallax effects are enabled for all elements on the entire system which support that feature."),
+  );
+
+  $form['autumn_general']['autumn_fade_in'] = array(
+    '#type'          => 'checkbox',
+    '#title'         => t('Fade-in effects'),
+    '#default_value' => theme_get_setting('autumn_fade_in'),
+    '#description'   => t("If this checkbox is enabled the fade-in effects are enabled for all elements on the entire system which support that feature."),
+  );
+
+  $form['autumn_general']['autumn_blogurl'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Blog Page Custom-Url'),
+    '#default_value' => theme_get_setting('autumn_blogurl'),
+    '#description'   => t("Without front url, leading slash or protocol. Example: If your blog page has the url 'https://theme-autumn-drupal.michaelstauner.com/MYBLOG' you have to paste 'MYBLOG'."),
+  );
+
+  $form['autumn_color_fonts'] = array(
+    '#type'         => 'details',
+    '#title'        => t('Colors - Fonts'),
+    '#open'         => TRUE,
+  );
+
+  $form['autumn_color_fonts']['autumn_color_font_main'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Font color - main'),
+    '#default_value' => theme_get_setting('autumn_color_font_main'),
+    '#description'   => t("Used for primary text on entire site. Please use a hexcode like: '#000000'. Default value: '#ffffff' (white)."),
+  );
+
+  $form['autumn_color_fonts']['autumn_color_font_secondary'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Font color - secondary'),
+    '#default_value' => theme_get_setting('autumn_color_font_secondary'),
+    '#description'   => t("Used for highlighting texts. Please use a hexcode like: '#000000'. Default value: '#b59982' (gold)."),
+  );
+
+  $form['autumn_color_fonts']['autumn_color_font_dark'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Font color - opposit'),
+    '#default_value' => theme_get_setting('autumn_color_font_dark'),
+    '#description'   => t("Used for texts on a bright background. Please use a hexcode like: '#000000'. Default value: '#000000' (black)."),
+  );
+
+  $form['autumn_color_bg'] = array(
+    '#type'         => 'details',
+    '#title'        => t('Colors - Backgrounds'),
+    '#open'         => TRUE,
+  );
+
+  $form['autumn_color_bg']['autumn_color_bg_main'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Background color - main'),
+    '#default_value' => theme_get_setting('autumn_color_bg_main'),
+    '#description'   => t("This defines the color for the page background. Please use a hexcode like: '#000000'. Default value: '#191919'. (very dark grey)"),
+  );
+
+  $form['autumn_color_bg']['autumn_color_bg_secondary'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Background color - secondary'),
+    '#default_value' => theme_get_setting('autumn_color_bg_secondary'),
+    '#description'   => t("This defines the color for normal elements background. For example the footer, banner or blog post teaser. Please use a hexcode like: '#000000'. Default value: '#2d2d2d'. (dark grey)"),
+  );
+
+  $form['autumn_color_buttons'] = array(
+    '#type'         => 'details',
+    '#title'        => t('Colors - Buttons'),
+    '#open'         => TRUE,
+  );
+
+  $form['autumn_color_buttons']['autumn_color_btn_main'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Button - main - font color'),
+    '#default_value' => theme_get_setting('autumn_color_btn_main'),
+    '#description'   => t("Used for buttons, ctas and action elements. Please use a hexcode like: '#000000'. Default value: '#b59982'. (gold)"),
+  );
+
+  $form['autumn_color_buttons']['autumn_color_btn_main_hover'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Button - main - font color - hover'),
+    '#default_value' => theme_get_setting('autumn_color_btn_main_hover'),
+    '#description'   => t("Font color as soon as the user mouse-over the element. Please use a hexcode like: '#000000'. Default value: '#000000'. (black)"),
+  );
+
+  $form['autumn_color_buttons']['autumn_color_btn_secondary'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Button - secondary - font color'),
+    '#default_value' => theme_get_setting('autumn_color_btn_secondary'),
+    '#description'   => t("Please use a hexcode like: '#000000'. Default value: '#ffffff'. (white)"),
+  );
+
+  $form['autumn_color_buttons']['autumn_color_btn_secondary_hover'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Button - secondary - font color - hover'),
+    '#default_value' => theme_get_setting('autumn_color_btn_secondary_hover'),
+    '#description'   => t("Please use a hexcode like: '#000000'. Default value: '#000000'. (black)"),
+  );
+
+  $form['autumn_color_text_read'] = array(
+    '#type'         => 'details',
+    '#title'        => t('Colors - Text readability helpers'),
+    '#open'         => TRUE,
+  );
+
+  $form['autumn_color_text_read']['autumn_color_text_read_dark'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Text readability helper - dark'),
+    '#default_value' => theme_get_setting('autumn_color_text_read_dark'),
+    '#description'   => t("An overlay between text and image which makes the text more readable. Please use a hexcode like: '#000000'. Default value: '#000000'. (black)"),
+  );
+
+  $form['autumn_color_text_read']['autumn_color_text_read_bright'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Text readability helper - bright'),
+    '#default_value' => theme_get_setting('autumn_color_text_read_bright'),
+    '#description'   => t("Please use a hexcode like: '#000000'. Default value: '#ffffff'. (white)"),
+  );
+}
+
+function autumn_theme_suggestions_html_alter (&$suggestions, array $variables, $hook) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if(isset($node) && !empty($node) && is_object($node)){
+    $node_type = $node->getType();
+    $suggestions[] = 'html__contenttype__'.$node_type;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ */
+function autumn_preprocess_html(&$variables) {
+
+  // set base tag
+  $variables['base_path'] = base_path();
+  $variables['autumn_color_bg_main'] = theme_get_setting('autumn_color_bg_main');
+  $variables['autumn_color_bg_secondary'] = theme_get_setting('autumn_color_bg_secondary');
+  $variables['autumn_color_btn_main_hover'] = theme_get_setting('autumn_color_btn_main_hover');
+  $variables['autumn_color_btn_secondary_hover'] = theme_get_setting('autumn_color_btn_secondary_hover');
+  $variables['autumn_color_text_read_dark'] = theme_get_setting('autumn_color_text_read_dark');
+  $variables['autumn_color_font_dark'] = theme_get_setting('autumn_color_font_dark');
+  $variables['autumn_color_font_main'] = theme_get_setting('autumn_color_font_main');
+  $variables['autumn_color_font_secondary'] = theme_get_setting('autumn_color_font_secondary');
+  $variables['autumn_color_btn_main'] = theme_get_setting('autumn_color_btn_main');
+  $variables['autumn_color_btn_secondary'] = theme_get_setting('autumn_color_btn_secondary');
+  $variables['autumn_color_text_read_bright'] = theme_get_setting('autumn_color_text_read_bright');
+
+  // try to get node of current page
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if(isset($node) && !empty($node) && is_object($node)){
+
+    $nid = $node->id();
+    $pathToTheme = \Drupal::theme()->getActiveTheme()->getPath();
+
+    //Is nid valid
+    if (isset($nid)) {
+
+      //Get path alias for node
+      $path = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $nid);
+
+      // get url and split it in the different parts
+      $path_pieces = explode('/', $path);
+
+      //Pass to view
+      $variables['nid'] = $node->nid;
+      $variables['node_path'] = $path;
+
+      $node_type = $node->getType();
+
+      //Build up page information array
+      $page_informations = [];
+      $page_informations[] = 'page-node-' . $nid;
+      $page_informations[] = 'page-type-' . str_replace('_', '-', $node_type);
+      $page_informations[] = 'autumn_parallax-' . theme_get_setting('autumn_parallax');
+      $page_informations[] = 'autumn_fade_in-' . theme_get_setting('autumn_fade_in');
+
+      if (isset($_GET['panel-info'])) {
+        $page_informations[] = 'panel-info-enabled';
+      }
+
+      //Add splitted path to body as classes
+      foreach ($path_pieces as $pieceKey => $piece) {
+        $page_informations[] = (string)$piece;
+      }
+
+      //Pass informations to view
+      $variables['page_information'] = implode(' ', $page_informations);
+    }
+
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK()
+ */
+function autumn_preprocess_page(&$variables) {
+
+  $variables['base_path'] = base_path();
+
+  // try to get node of current page
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if(isset($node) && !empty($node) && is_object($node)){
+
+    $nid = $node->id();
+
+    //Is nid valid
+    if (isset($nid)) {
+
+      //Pass to view
+      $variables['nid'] = $node->nid;
+
+    }
+
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK()
+ */
+function autumn_preprocess_node(&$variables) {
+
+  //pass variables to view
+  $variables['base_path'] = base_path();
+  $variables['autumn_blogurl'] = theme_get_setting('autumn_blogurl');
+
+  // try to get node of current page
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  // Note: you'll probably want this only for certain content types.
+  if ($variables['node']->getType() == 'a_blog_detail') {
+    $variables['comment_count'] = $variables['node']->get('field_comments_01')->comment_count;
+  }
+
+  $variables['lang'] = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['node_lang'] = $variables['node']->language()->getId();
+}
+
+function autumn_page_attachments_alter(array &$page) {
+
+  // search for generator metatag and unset metatag
+  if (isset($page['#attached']['html_head']) && !empty($page['#attached']['html_head'])) {
+    foreach ($page['#attached']['html_head'] as $key => $head) {
+
+      // unset generator drupal 8 tag
+      if (isset($head[0]['#attributes']['name']) && $head[0]['#attributes']['name'] == 'Generator') {
+        unset($page['#attached']['html_head'][$key]);
+      }
+    }
+  }
+}
+
+function autumn_preprocess_username(&$vars) {
+  if (isset($vars['link_path'])) {
+    unset($vars['link_path']);
+  }
+}
+
+function autumn_preprocess_taxonomy_term(&$variables) {
+  $variables['autumn_blogurl'] = theme_get_setting('autumn_blogurl');
+}
+
+function autumn_theme_suggestions_views_view_alter (&$suggestions, &$variables, $hook) {
+  $view = $variables['view'];
+  $suggestions[] = 'views-view__'.$view->id();
+}
+
+function autumn_theme_suggestions_views_view_unformatted_alter (&$suggestions, &$variables, $hook) {
+  $view = $variables['view'];
+  $suggestions[] = 'views-view-unformatted__'.$view->id();
+}
+
+function autumn_theme_suggestions_block_alter(&$suggestions, &$variables, $hook)
+{
+    $elements = $variables['elements'];
+
+    if (isset($elements['content']['#block_content'])) {
+        $bundle = $elements['content']['#block_content']->bundle();
+        $suggestions[] = 'block__' . $bundle;
+    }
+}

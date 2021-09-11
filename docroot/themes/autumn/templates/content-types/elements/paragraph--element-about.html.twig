@@ -1,0 +1,23 @@
+{% set img = file_url(paragraph.field_image_01.0.entity.uri.value) %}
+{% set imgAlt = paragraph.field_image_01.alt|render|striptags|trim %}
+
+<div class="element-about">
+  <div class="animation-helper">
+    <div class="image-wrap {% if content.field_paragraph_unlimited_01[0]|render %}hover-details-overlay-effect-1{% endif %}">
+      <img src="{{ img }}" alt="{{ imgAlt }}">
+
+      {% if content.field_paragraph_unlimited_01[0]|render %}
+        <div class="overlay abs-wrap"></div>
+        <div class="details-container">
+          <div class="icon-wrap">
+            {{ content.field_paragraph_unlimited_01 }}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="text-wrap">
+      {{ content.field_area_01 }}
+    </div>
+  </div>
+</div>

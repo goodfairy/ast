@@ -1,0 +1,49 @@
+{% set img = file_url(paragraph.field_image_01.0.entity.uri.value) %}
+
+{% if content.field_background_bright_01[0]['#markup'] %}
+  {% set bgBrightClass = 'bg-bright' %}
+{% else %}
+  {% set bgBrightClass = 'bg-dark' %}
+{% endif %}
+
+{% if content.field_text_position_01[0]['#markup'] == 0 %}
+  {% set textPosClass = 'text-top-align' %}
+{% elseif content.field_text_position_01[0]['#markup'] == 1 %}
+  {% set textPosClass = 'text-center-align' %}
+{% else %}
+  {% set textPosClass = 'text-bottom-align' %}
+{% endif %}
+
+{% if content.field_text_readability_01[0]['#markup'] %}
+  {% set textReadClass = 'text-readability-on' %}
+{% else %}
+  {% set textReadClass = 'text-readability-off' %}
+{% endif %}
+
+{% if content.field_size_half_01[0]['#markup'] %}
+  {% set halfSizeClass = 'hero-half' %}
+{% else %}
+  {% set halfSizeClass = 'hero-half-off' %}
+{% endif %}
+
+<section {% if content.field_scroll_id|render %}id="{{ content.field_scroll_id|render|striptags|trim|replace({'#': ''}) }}"{% endif %} class="panel-hero {{ textPosClass }} {{ textReadClass }} {{ bgBrightClass }} {{ halfSizeClass }} image-bg-1" data-paragraph-id="{{ paragraph.id() }}">
+  <div class="bg-image abs-wrap" style="background-image:url('{{ img }}');">
+
+  </div>
+
+  <div class="text-layer">
+    <div class="animation-helper">
+      <div class="max-width">
+        <div class="row">
+          <div class="col-2 desktop">&nbsp;</div>
+          <div class="col-8">
+            <div class="inner-text-layer">
+              {{ content.field_area_01 }}
+            </div>
+          </div>
+          <div class="col-2 desktop">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+.panel-legal{
+  padding-top: 150px;
+  padding-bottom: 50px;
+
+  h2{
+    margin-bottom: 50px;
+  }
+
+  h4{
+    margin-bottom: 10px;
+    margin-top: 50px;
+  }
+
+  @media only screen and (min-width: 2000px) {
+    padding-top: 7.5vw;
+    padding-bottom: 2.5vw;
+
+    h2{
+      margin-bottom: 2.5vw;
+    }
+
+    h4{
+      margin-bottom: 0.5vw;
+      margin-top: 2.5vw;
+    }
+  }
+}

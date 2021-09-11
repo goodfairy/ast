@@ -1,0 +1,63 @@
+<footer id="footer" class="default-panel-padding color-bg-secondary {% if content.field_area_plain_01|render %}with-map{% else %}without-map{% endif %}">
+  <div class="max-width">
+    <div class="hidden-footer-with-map-only-preview">
+      <div class="row align-row-stretch">
+        {% if content.field_area_plain_01|render %}
+          <div class="col-7 map-col">
+            <iframe src="{{ content.field_area_plain_01|render|striptags|trim }}" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+          </div>
+          <div class="col-5">
+            {{ content.field_area_01 }}
+
+            <div class="social">
+              <h4>{{ content.field_text_01 }}</h4>
+              <ul>
+                {{ content.field_paragraph_unlimited_01 }}
+              </ul>
+            </div>
+          </div>
+        {% else %}
+          <div class="col-3 desktop">&nbsp;</div>
+          <div class="col-6">
+            {{ content.field_area_01 }}
+
+            <div class="social">
+              <h4>{{ content.field_text_01 }}</h4>
+              <ul>
+                {{ content.field_paragraph_unlimited_01 }}
+              </ul>
+            </div>
+          </div>
+          <div class="col-3 desktop">&nbsp;</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="hidden-footer-without-map-only-preview" style="display:none;">
+      <div class="row align-row-stretch">
+        <div class="col-3 desktop">&nbsp;</div>
+        <div class="col-6">
+          {{ content.field_area_01 }}
+
+          <div class="social">
+            <h4>{{ content.field_text_01 }}</h4>
+            <ul>
+              {{ content.field_paragraph_unlimited_01 }}
+            </ul>
+          </div>
+        </div>
+        <div class="col-3 desktop">&nbsp;</div>
+      </div>
+    </div>
+
+    <div class="row row-legal">
+      <div class="col-1 desktop">&nbsp;</div>
+      <div class="col-10">
+        <ul>
+          {{ content.field_link_unlimited_01 }}
+        </ul>
+      </div>
+      <div class="col-1 desktop">&nbsp;</div>
+    </div>
+  </div>
+</footer>
