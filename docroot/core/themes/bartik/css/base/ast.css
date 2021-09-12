@@ -152,3 +152,227 @@
         display: none;
     }
 }
+
+.advantages > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.advantages__item {
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 50px;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 3%;
+}
+
+.advantages__item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 48px;
+}
+
+.advantages__item:nth-child(1)::before {
+    background-image: url("../../images/custom/folder.svg");
+}
+
+.advantages__item:nth-child(2)::before {
+    background-image: url("../../images/custom/pen-edit-create.svg");
+}
+
+.advantages__item:nth-child(3)::before {
+    background-image: url("../../images/custom/package-box.svg");
+}
+
+@media all and (max-width: 768px) {
+    .advantages {
+        display: flex;
+        justify-content: center;
+    }
+
+    .advantages > div {
+        flex-wrap: wrap;
+        flex-direction: column;
+        /*align-items: center;*/
+    }
+
+    .advantages__item {
+        padding-top: 60px;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .advantages__item::before {
+        left: calc(50% - 24px);
+    }
+}
+
+.dealers .view-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.dealers__item {
+    border-radius: 10px;
+    border: 1px solid #323232;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.dealers__callback a {
+    display: block;
+    border-bottom: none;
+    font-size: 0;
+    width: 20px;
+    height: 20px;
+    background-image: url("../../images/icons/phone.svg");
+    margin-right: 10px;
+}
+
+.dealers__callback a:hover {
+    opacity: 0.6;
+}
+
+.dealers__callback a:active {
+    opacity: 1;
+}
+
+.dealers__type {
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+}
+
+.dealers__city {
+    display: block;
+    font-size: 10px;
+    line-height: 14px;
+}
+
+@media all and (max-width: 1024px) {
+    .dealers .view-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media all and (max-width: 600px) {
+    .dealers .view-content {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.features__item {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.features__top {
+    color: #FF4757;
+    font-size: 64px;
+    line-height: 87px;
+    font-weight: 900;
+}
+
+.features__bottom {
+    font-size: 18px;
+    line-height: 25px;
+}
+
+@media all and (max-width: 1024px) {
+    .features__item {
+        width: 50%;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .features__item {
+        width: 100%;
+    }
+}
+
+.brands__text {
+    max-width: 600px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 49px;
+}
+
+@media all and (max-width: 1024px) {
+    .brands__text {
+        font-size: 24px;
+        line-height: 33px;
+        font-weight: 700;
+    }
+}
+
+.brands__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.brands__item {
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.brands__img {
+    width: 100%;
+}
+
+@media all and (max-width: 1024px) {
+    .brands__item {
+        width: 50%;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .brands__item {
+        width: 100%;
+    }
+}
+
+.about-company {
+    min-height: 500px;
+    padding-left: 600px;
+    background-image: url("../../images/custom/about-company-bkg.png");
+    background-repeat: no-repeat;
+}
+
+@media all and (max-width: 1024px) {
+    .about-company {
+        padding-left: 40%;
+        background-size: 50%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .about-company {
+        padding-left: 0;
+        padding-top: 400px;
+        background-size: 100%;
+    }
+}
