@@ -2,11 +2,6 @@
     overflow: hidden;
 }
 
-/*.main-content {*/
-/*    margin-right: auto;*/
-/*    margin-left: auto;*/
-/*}*/
-
 .clearfix:after {
     display: none;
 }
@@ -271,6 +266,7 @@
 @media all and (max-width: 600px) {
     .dealers .view-content {
         display: grid;
+        grid-gap: 20px;
         grid-template-columns: 1fr;
     }
 }
@@ -278,6 +274,7 @@
 .features {
     display: flex;
     flex-wrap: wrap;
+    padding: 50px 0;
 }
 
 .features__item {
@@ -316,6 +313,7 @@
     font-weight: 700;
     font-size: 36px;
     line-height: 49px;
+    margin-bottom: 50px;
 }
 
 @media all and (max-width: 1024px) {
@@ -357,22 +355,181 @@
 
 .about-company {
     min-height: 500px;
-    padding-left: 600px;
     background-image: url("../../images/custom/about-company-bkg.png");
     background-repeat: no-repeat;
+    background-size: 70%;
+    background-position-y: 10px;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.about-company .view-content {
+    width: 50%;
+    margin-left: auto;
+}
+
+.about-company .about-company__header {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 10px 13px;
+    color: #fff;
+    background: #FF4757;
+    border-radius: 6px;
+    line-height: 18px;
 }
 
 @media all and (max-width: 1024px) {
     .about-company {
-        padding-left: 40%;
         background-size: 50%;
+        background-position-y: 50%;
+        background-position-x: calc(100% + 130px);
+    }
+    .about-company .view-content {
+        width: 65%;
+        margin-right: auto;
+        margin-left: 0;
     }
 }
 
 @media all and (max-width: 768px) {
+    .about-company .view-content {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     .about-company {
-        padding-left: 0;
+        background-size: 650px;
+        background-position-x: calc(50% + 90px);
+        background-position-y: 0;
         padding-top: 400px;
-        background-size: 100%;
+    }
+}
+
+@media all and (max-width: 450px) {
+    .about-company {
+        background-size: 500px;
+        background-position-x: calc(50% + 60px);
+        background-position-y: 0;
+        padding-top: 300px;
+    }
+}
+
+#block-webformzayavkanasotrudnechestvo {
+    box-sizing: border-box;
+    max-width: 1130px;
+    min-width: 320px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
+    min-height: 650px;
+    padding-top: 70px;
+    background-image: url("../../images/custom/form-bkg.png");
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+}
+
+#block-webformzayavkanasotrudnechestvo .content {
+    width: 50%;
+    margin-left: auto;
+}
+
+.page-form .form-type-processed-text {
+    font-size: 42px;
+    line-height: 56px;
+    font-weight: 700;
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+}
+
+.page-form input.form-text,
+.page-form input.form-tel,
+.page-form input.form-email {
+    border: 1px solid #D7EAF6;
+}
+
+.page-form .iti {
+    width: 100%;
+}
+
+.page-form input {
+    height: 54px;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 14px rgba(143, 185, 213, 0.15);
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.page-form input:active {
+    outline: none;
+    border-color: #7ebfe8;
+}
+
+.page-form input:focus {
+    outline: none;
+    border-color: #7ebfe8;
+}
+
+.page-form input::placeholder {
+    color: #BBD7EA;
+}
+
+.page-form .form-submit {
+    border: none;
+}
+
+.page-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 54px 54px;
+    grid-gap: 20px;
+}
+.page-form .form-item,
+.page-form .form-actions {
+    padding: 0;
+    margin: 0;
+}
+
+@media all and (max-width: 1024px) {
+    .page-form {
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+
+    .page-form .form-type-processed-text {
+        grid-column: 1 / 2;
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    #block-webformzayavkanasotrudnechestvo {
+        background-size: 50%;
+        background-position-y: 80px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    #block-webformzayavkanasotrudnechestvo .content {
+        width: 100%;
+    }
+
+    #block-webformzayavkanasotrudnechestvo {
+        background-position-y: 100%;
+        background-position-x: 50%;
+        background-size: 400px;
+        padding-bottom: 500px;
+    }
+}
+
+@media all and (max-width: 450px) {
+    #block-webformzayavkanasotrudnechestvo {
+        background-size: 300px;
+        padding-bottom: 400px;
+        background-position-x: 0;
     }
 }

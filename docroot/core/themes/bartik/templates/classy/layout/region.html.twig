@@ -16,6 +16,10 @@
   {% set add_class = 'header_buttons' %}
 {% endif %}
 
+{% if region == 'block-webformzayavkanasotrudnechestvo' %}
+  {% set add_class = 'content-wrapper' %}
+{% endif %}
+
 {%
   set classes = [
     'region',
