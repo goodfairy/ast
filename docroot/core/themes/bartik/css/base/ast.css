@@ -908,6 +908,10 @@ a.menu-toggle {
     width: 100%;
 }
 
+.ui-autocomplete-input::before {
+    content: url("../../images/custom/search-loupe.svg");
+}
+
 .dealers select,
 .page-form input,
 .dealers .ui-autocomplete-input {
