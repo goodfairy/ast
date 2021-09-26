@@ -4,9 +4,9 @@
 #local.site.yml
 #local.services.yml
 tests/behat/local.yml
-box/local.config.yml
+#box/local.config.yml
 #*.local
-local.blt.yml
+#local.blt.yml
 
 # Ignore drupal core.
 #docroot/core
@@ -29,12 +29,12 @@ local.blt.yml
 #docroot/themes/custom/*/styleguide
 
 # Ignore build artifacts
-deployment_identifier
-/deploy
-bin/*
-tmp
-reports
-/travis_wait*
+#deployment_identifier
+#/deploy
+#bin/*
+#tmp
+#reports
+#/travis_wait*
 
 # OS X
 .DS_Store
@@ -106,8 +106,8 @@ xhprof_*
 #vendor/.git
 
 #Sass
-.sass-cache
-*.css.map
+#.sass-cache
+#*.css.map
 
 #Netbeans IDE
 nbproject

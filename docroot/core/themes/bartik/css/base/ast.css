@@ -896,6 +896,8 @@ a.menu-toggle {
     grid-column: 1 / 3;
 }
 
+.dealers select,
+.dealers .ui-autocomplete-input,
 .page-form input.form-text,
 .page-form input.form-tel,
 .page-form input.form-email {
@@ -906,7 +908,9 @@ a.menu-toggle {
     width: 100%;
 }
 
-.page-form input {
+.dealers select,
+.page-form input,
+.dealers .ui-autocomplete-input {
     height: 54px;
     width: 100%;
     padding-left: 20px;
@@ -915,14 +919,20 @@ a.menu-toggle {
     box-shadow: 0px 4px 14px rgba(143, 185, 213, 0.15);
     font-size: 14px;
     line-height: 19px;
+    margin: 0;
 }
 
-.page-form input:active {
+.dealers select,
+.page-form input:active,
+.dealers .ui-autocomplete-input:active {
     outline: none;
     border-color: #7ebfe8;
 }
 
-.page-form input:focus {
+.dealers option,
+.dealers select,
+.page-form input:focus,
+.dealers .ui-autocomplete-input:focus {
     outline: none;
     border-color: #7ebfe8;
 }
@@ -1218,6 +1228,10 @@ a.menu-toggle {
     display: none;
 }
 
+.dealers .pager__item.is-active {
+    display: none;
+}
+
 .dealers .pager__item a {
     border: none;
 }
@@ -1240,8 +1254,8 @@ a.menu-toggle {
 .dealers .pager__item a::before {
     content: "";
     position: absolute;
+    top: 22px;
     display: block;
-    position: absolute;
     width: 10px;
     height: 10px;
 }
@@ -1260,5 +1274,5 @@ a.menu-toggle {
 
 
 .dealers .pager__item a:hover::before {
-    color: #908787;
+    border-color: #908787;
 }
