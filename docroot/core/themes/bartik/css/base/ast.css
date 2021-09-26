@@ -1222,6 +1222,10 @@ a.menu-toggle {
     border: none;
 }
 
+.dealers .pager__item a span {
+    display: none;
+}
+
 .dealers .pager__item--next a,
 .dealers .pager__item--previous a {
     position: relative;
