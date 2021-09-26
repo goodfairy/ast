@@ -920,7 +920,6 @@ a.menu-toggle {
 
 .dealers .form--inline {
     display: flex;
-    flex-wrap: wrap;
 }
 
 .dealers .form-item {
