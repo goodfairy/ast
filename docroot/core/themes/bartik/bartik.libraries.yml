@@ -4,6 +4,7 @@ global-styling:
     base:
       css/base/elements.css: {}
       css/base/ast.css: {}
+      css/base/ui-dialog.css: {}
     component:
       css/components/block.css: {}
       css/components/book.css: {}
