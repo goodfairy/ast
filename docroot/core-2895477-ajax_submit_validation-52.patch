@@ -1,0 +1,49 @@
+diff --git a/core/misc/ajax.es6.js b/core/misc/ajax.es6.js
+index 119642d..e730c81 100644
+--- a/core/misc/ajax.es6.js
++++ b/core/misc/ajax.es6.js
+@@ -593,6 +593,21 @@
+           }),
+         );
+       }
++
++      // Allow external clientside validation libraries to hook into the AJAX
++      // form submission process. The event must return FALSE to prevent the
++      // form from submitting.
++      const $ajaxElement = $(ajax.element);
++      if (!$ajaxElement.attr('formnovalidate')) {
++        const formValidationEvent = $.Event('drupalAjaxFormValidate');
++        $(event.target).trigger(formValidationEvent);
++
++        if (formValidationEvent.result === false) {
++          event.preventDefault();
++          return false;
++        }
++      }
++
+       return ajax.eventResponse(this, event);
+     });
+ 
+diff --git a/core/misc/ajax.js b/core/misc/ajax.js
+index b817b77..eb34947 100644
+--- a/core/misc/ajax.js
++++ b/core/misc/ajax.js
+@@ -269,6 +269,18 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
+           '!url': ajax.url
+         }));
+       }
++
++      var $ajaxElement = $(ajax.element);
++      if (!$ajaxElement.attr('formnovalidate')) {
++        var formValidationEvent = $.Event('drupalAjaxFormValidate');
++        $(event.target).trigger(formValidationEvent);
++
++        if (formValidationEvent.result === false) {
++          event.preventDefault();
++          return false;
++        }
++      }
++
+       return ajax.eventResponse(this, event);
+     });
+ 
