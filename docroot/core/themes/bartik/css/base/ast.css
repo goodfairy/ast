@@ -908,8 +908,29 @@ a.menu-toggle {
     width: 100%;
 }
 
-.ui-autocomplete-input::before {
-    content: url("../../images/custom/search-loupe.svg");
+.dealers .form-actions {
+    width: 25%;
+}
+
+.dealers .form-submit {
+    height: 54px;
+    width: 100%;
+    border: none;
+}
+
+.dealers .form--inline {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dealers .form-item {
+    width: calc(40% - 10px);
+}
+
+input.form-autocomplete.ui-autocomplete-input {
+    background-image: url("../../images/custom/search-loupe.svg");
+    background-position: calc(100% - 10px) center;
+    padding-right: 35px;
 }
 
 .dealers select,
