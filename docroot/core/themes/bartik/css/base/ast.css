@@ -908,28 +908,38 @@ a.menu-toggle {
     width: 100%;
 }
 
-.dealers .form-actions {
-    width: 25%;
-}
-
-.dealers .form-submit {
-    height: 54px;
-    width: 100%;
-    border: none;
-}
-
 .dealers .form--inline {
     display: flex;
+    margin-bottom: 15px;
 }
 
 .dealers .form-item {
     width: calc(40% - 10px);
 }
 
+.dealers .form-actions {
+    width: 25%;
+    padding-top: 16px;
+}
+
+.dealers .form-submit {
+    width: 100%;
+    border: none;
+}
+
+.dealers .form-submit.button:hover {
+    background: linear-gradient(180deg, #ef1629 0%, #FF4757 100%);
+}
+
 input.form-autocomplete.ui-autocomplete-input {
     background-image: url("../../images/custom/search-loupe.svg");
     background-position: calc(100% - 10px) center;
     padding-right: 35px;
+}
+
+input.form-autocomplete.ui-autocomplete-input:hover,
+input.form-autocomplete.ui-autocomplete-input:focus {
+    background-image: url("../../images/custom/search-loupe-active.svg");
 }
 
 .dealers select,
@@ -947,6 +957,12 @@ input.form-autocomplete.ui-autocomplete-input {
 }
 
 .dealers select,
+.dealers .ui-autocomplete-input,
+.dealers .form-submit {
+    height: 44px;
+}
+
+.dealers select,
 .page-form input:active,
 .dealers .ui-autocomplete-input:active {
     outline: none;
@@ -959,6 +975,23 @@ input.form-autocomplete.ui-autocomplete-input {
 .dealers .ui-autocomplete-input:focus {
     outline: none;
     border-color: #7ebfe8;
+}
+
+@media all and (max-width: 600px) {
+    .dealers .form--inline {
+        flex-direction: column;
+    }
+
+    .dealers .form-item {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .dealers .form-actions {
+        width: auto;
+        padding-top: 0;
+        margin-top: 0;
+    }
 }
 
 .page-form input::placeholder {
