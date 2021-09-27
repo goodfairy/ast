@@ -26,14 +26,13 @@
  */
 #}
 <!DOCTYPE html>
-<html lang="ru" {{ html_attributes }}>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <head-placeholder token="{{ placeholder_token }}">
+<html{{ html_attributes }}>
+  <head>
+    <head-placeholder token="{{ placeholder_token }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
     <css-placeholder token="{{ placeholder_token }}">
-      <js-placeholder token="{{ placeholder_token }}">
-        </head>
+    <js-placeholder token="{{ placeholder_token }}">
+  </head>
   <body{{ attributes }}>
     {#
       Keyboard navigation/accessibility link to main content section in
@@ -48,4 +47,3 @@
     <js-bottom-placeholder token="{{ placeholder_token }}">
   </body>
 </html>
-
