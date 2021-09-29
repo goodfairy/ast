@@ -30,10 +30,8 @@
 
 .header {
   position: fixed;
-  width: calc(100% + 1px);
-  left: 50%;
+  width: 100%;
   top: 0;
-  transform: translateX(calc(-50% - 1px));
   background: #fff;
   z-index: 100;
 }
@@ -43,7 +41,7 @@
 }
 
 @media all and (max-width: 768px) {
-  .header,
+  .header .layout-container,
   .content-wrapper {
     padding-right: 10px;
     padding-left: 10px;
@@ -98,17 +96,13 @@ a.menu-toggle {
   font-size: 0 !important;
 }
 
-@media all and (max-width: 768px) {
-  #block-callback-block {
-    display: none;
-  }
-}
-
 .header__sign-in {
   display: block;
-  width: 25px;
-  height: 25px;
+  width: 28px;
+  height: 28px;
   background-image: url("../../images/icons/sign-in.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .header__sign-in:hover {
@@ -130,30 +124,39 @@ a.menu-toggle {
   }
   .region-secondary-menu {
     order: 2;
+    margin-left: auto;
+    margin-right: 20px;
   }
   .region-primary-menu {
     order: 3;
     position: relative;
+    top: -10px;
+    right: -10px;
   }
 
-  .region-primary-menu .menu {
+  .header .region-primary-menu .menu {
     position: absolute;
     text-align: right !important;
     background: #fff;
-  }
-}
-
-@media all and (min-width: 1023px) {
-  .region-primary-menu .block-menu .menu {
+    right: 0;
+    top: 38px;
     margin: 0;
-    padding: 0 15px;
     font-size: 0.929em;
+    border-radius: 15px;
+    overflow: hidden;
   }
+
+  .header .region-primary-menu .menu a {
+    padding-right: 25px;
+    margin: 0;
+    text-align: center;
+  }
+
   .region-primary-menu .menu-item,
   body:not(:target) .region-primary-menu .menu-item {
-    float: left; /* LTR */
+    float: none;
     overflow: visible;
-    width: auto;
+    width: 100%;
     height: auto;
     margin: 0 1px;
     padding: 0 1px;
@@ -182,14 +185,25 @@ a.menu-toggle {
   body:not(:target) .region-primary-menu .menu-toggle {
     display: none;
   }
-}
 
-@media all and (min-width: 1023px) {
   body:not(:target) .region-primary-menu .menu-toggle-target-show:target ~ .menu-toggle--hide {
     display: none;
   }
 }
 
+@media all and (max-width: 768px) {
+  #block-callback-block {
+    display: none;
+  }
+
+  .region-secondary-menu {
+    margin-right: 0;
+  }
+
+  .header .region-secondary-menu > div:nth-child(2) {
+    margin-right: 15px;
+  }
+}
 
 .slider {
   position: relative;
@@ -1110,6 +1124,12 @@ input.form-autocomplete.ui-autocomplete-input:focus {
 
 .kitchens .pager__item {
   font-size: 0;
+  padding: 0;
+}
+
+.kitchens .pager__item.pager__item--next,
+.kitchens .pager__item.pager__item--previous {
+  padding: 10px 0 10px 10px;
 }
 
 .kitchens .pager__item.pager__item--next a,
